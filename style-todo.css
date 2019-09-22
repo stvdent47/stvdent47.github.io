@@ -2,7 +2,14 @@ header {
     background-color: gray;
 }
 
-#list-items {
+#list {
+    display: flex;
+    height: 200px;
+    background-color: cadetblue;
+    margin-bottom: 20px;
+}
+
+#myList {
     background-color: aquamarine;
 }
 
@@ -14,7 +21,7 @@ header {
     background-color: greenyellow;
 }
 
-#task-input {
+#taskInput {
     background-color: aqua;
 }
 
