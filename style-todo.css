@@ -3,7 +3,6 @@ header {
 }
 
 #list-items {
-    list-style-type: none;
     background-color: aquamarine;
 }
 
@@ -19,6 +18,6 @@ header {
     background-color: aqua;
 }
 
-#create-task-btn {
+#createTask {
     background-color: red;
 }
