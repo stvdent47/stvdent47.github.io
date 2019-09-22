@@ -4,7 +4,7 @@ header {
 
 #list {
     display: flex;
-    height: 200px;
+    height: 100%;
     background-color: cadetblue;
     margin-bottom: 20px;
 }
