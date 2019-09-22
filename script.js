@@ -4,7 +4,7 @@ const createTask = () => {
     
 
     var newItem = document.createElement("li");
-    var newText = document.createTextNode("text4");
+    var newText = document.createTextNode("text4"   );
     newItem.appendChild(newText);
     document.getElementById("myList").appendChild(newItem);
 
