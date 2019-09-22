@@ -7,6 +7,10 @@ header {
     background-color: aquamarine;
 }
 
+#delete-btn {
+    background-color: blueviolet;
+}
+
 #input {
     background-color: greenyellow;
 }
