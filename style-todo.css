@@ -7,7 +7,7 @@ header {
     background-color: aquamarine;
 }
 
-#delete-btn {
+.delete-btn {
     background-color: blueviolet;
 }
 
