@@ -1,0 +1,20 @@
+header {
+    background-color: gray;
+}
+
+#list-items {
+    list-style-type: none;
+    background-color: aquamarine;
+}
+
+#input {
+    background-color: greenyellow;
+}
+
+#task-input {
+    background-color: aqua;
+}
+
+#create-task-btn {
+    background-color: red;
+}
