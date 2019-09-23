@@ -1,3 +1,4 @@
+window.addEventListener('load', () => {
 document.getElementById('createBtn').addEventListener('click', function() {
     const newLi = document.createElement('li');
     const inputText = document.getElementById('taskInput').value;
@@ -9,4 +10,5 @@ document.getElementById('createBtn').addEventListener('click', function() {
 
     newLi.append(deleteBtn);
     myList.append(newLi);
+});
 });
