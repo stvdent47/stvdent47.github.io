@@ -1,15 +1,13 @@
 const createTask = () => {
-    alert('You have successfylly created a task!');
+    //alert('You have successfylly created a task!');
 
+    const newLi = document.createElement('li');
+    newLi.innerHTML = 'text4';
     
-
-    var newItem = document.createElement("li");
-    var newText = document.createTextNode("text4"   );
-    newItem.appendChild(newText);
-    document.getElementById("myList").appendChild(newItem);
-
+    const deleteBtn = document.createElement('button');
+    deleteBtn.innerHTML = 'delete';
     
-    var button = document.createElement("button");
-    button.innerHTML = "delete";
-    document.body.appendChild(button);
+    newLi.append(deleteBtn);
+    
+    myList.append(newLi);
 }
