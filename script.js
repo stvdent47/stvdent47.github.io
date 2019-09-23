@@ -2,7 +2,8 @@ const createTask = () => {
     //alert('You have successfylly created a task!');
 
     const newLi = document.createElement('li');
-    newLi.innerHTML = 'text4';
+    let inputText = document.getElementById('taskInput').value;
+    newLi.innerHTML = inputText;
     
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = 'delete';
