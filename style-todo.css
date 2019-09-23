@@ -13,7 +13,7 @@ header {
     background-color: aquamarine;
 }
 
-.delete-btn {
+.deleteBtn {
     background-color: blueviolet;
 }
 
@@ -25,6 +25,6 @@ header {
     background-color: aqua;
 }
 
-#createTask {
+#createBtn {
     background-color: red;
 }
