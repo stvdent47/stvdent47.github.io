@@ -14,5 +14,7 @@ document.getElementById('createBtn').addEventListener('click', function() {
 
     newLi.append(deleteBtn);
     myList.append(newLi);
+
+    document.getElementById('taskInput').value = '';
 });
 });
