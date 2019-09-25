@@ -8,6 +8,10 @@ document.getElementById('createBtn').addEventListener('click', function() {
     deleteBtn.className = 'deleteBtn';
     deleteBtn.innerHTML = 'delete';
 
+    deleteBtn.addEventListener('click', function() {
+        newLi.remove();
+    });
+
     newLi.append(deleteBtn);
     myList.append(newLi);
 });
