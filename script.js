@@ -2,7 +2,8 @@ window.addEventListener('load', () => {
     var todoList = [];
     var index = 0;
 
-    if (localStorage.getItem('todo') != undefined) {
+    const createLi = () => {
+        if (localStorage.getItem('todo') != undefined) {
         todoList = JSON.parse(localStorage.getItem('todo'));
         for (let i = 0; i < todoList.length; i++) {
             const newLi = document.createElement('li');
@@ -15,14 +16,17 @@ window.addEventListener('load', () => {
 
             deleteBtn.addEventListener('click', function() {
             newLi.remove();
+            todoList.splice(1, 1);
             });
 
             newLi.append(deleteBtn);
             myList.append(newLi);
             }
             
+        }
     }
-
+    createLi();
+    
     document.getElementById('createBtn').addEventListener('click', function () {
     const inputText = document.getElementById('taskInput').value; 
     const newLi = document.createElement('li');
