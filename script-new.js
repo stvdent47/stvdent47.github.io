@@ -4,26 +4,25 @@ window.addEventListener('load', () => {
 
     const render = () => {
         if (localStorage.getItem('todo') != undefined) {
-        todoList = JSON.parse(localStorage.getItem('todo'));
-        for (let i = 0; i < todoList.length; i++) {
-            const newLi = document.createElement('li');
-            newLi.innerHTML = todoList[i];
-            newLi.dataset.index = [index++];
-            
-            const deleteBtn = document.createElement('button');
-            deleteBtn.className = 'deleteBtn';
-            deleteBtn.innerHTML = 'delete';
+            todoList = JSON.parse(localStorage.getItem('todo'));
+            for (let i = 0; i < todoList.length; i++) {
+                const newLi = document.createElement('li');
+                newLi.innerHTML = todoList[i];
+                newLi.dataset.index = [index++];
+                
+                const deleteBtn = document.createElement('button');
+                deleteBtn.className = 'deleteBtn';
+                deleteBtn.innerHTML = 'delete';
 
-            deleteBtn.addEventListener('click', function() {
-                newLi.remove();
-            });
+                deleteBtn.addEventListener('click', function() {
+                    newLi.remove();
+                });
 
-            newLi.append(deleteBtn);
-            myList.append(newLi);
-            }
-            
-        }
-    }
+                newLi.append(deleteBtn);
+                myList.append(newLi);
+                };
+        };
+    };
     render();
     
     document.getElementById('createBtn').addEventListener('click', function () {
@@ -33,8 +32,8 @@ window.addEventListener('load', () => {
         newLi.dataset.index = [index++];
         
         todoList.push(inputText);
-        console.log(todoList);
         localStorage.setItem('todo', JSON.stringify(todoList));
+        console.log(todoList);
         
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'deleteBtn';
