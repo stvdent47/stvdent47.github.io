@@ -1,51 +1,65 @@
 window.addEventListener('load', () => {
-    var todoList = [];
-    var index = 0;
+    let todoList = [];
+	
+	const loadData = () => {
+		try {
+		const json = localStorage.getItem('todo');
+		const data = JSON.parse(json);
+		
+		if (Array.isArray(data)) {
+			return data;
+		} else {
+			return [];
+		}
+		} catch (e) {
+			return [];
+			};
+	}
 
-    const render = () => {
-        if (localStorage.getItem('todo') != undefined) {
-            todoList = JSON.parse(localStorage.getItem('todo'));
-            for (let i = 0; i < todoList.length; i++) {
-                const newLi = document.createElement('li');
-                newLi.innerHTML = todoList[i];
-                newLi.dataset.index = [index++];
-                
-                const deleteBtn = document.createElement('button');
-                deleteBtn.className = 'deleteBtn';
-                deleteBtn.innerHTML = 'delete';
+	const saveData = (data) => {
+		const json = JSON.stringify(data);
+		return localStorage.setItem('todo', json);
+	};
 
-                deleteBtn.addEventListener('click', function() {
-                    newLi.remove();
-                });
+	todoList = loadData(todoList);
+	
+    const render = (renderArray) => {
+        if (renderArray != undefined) {
+        	let forCleaning = document.getElementById('myList');
+			while (forCleaning.firstChild) {
+				forCleaning.removeChild(forCleaning.firstChild);
+			};
+				
+			for (let i = 0; i < renderArray.length; i++) {
+				const newLi = document.createElement('li');
+				newLi.innerHTML = renderArray[i];
+				
+				const deleteBtn = document.createElement('button');
+				deleteBtn.className = 'deleteBtn';
+				deleteBtn.innerHTML = 'delete';
 
-                newLi.append(deleteBtn);
-                myList.append(newLi);
-                };
-        };
-    };
-    render();
+				deleteBtn.addEventListener('click', function() {
+					newLi.remove();
+					alert('removed!');
+					
+				});
+
+				newLi.append(deleteBtn);
+				myList.append(newLi);
+				}
+            
+        }
+    }
+    render(todoList);
     
     document.getElementById('createBtn').addEventListener('click', function () {
-        const inputText = document.getElementById('taskInput').value; 
-        const newLi = document.createElement('li');
-        newLi.innerHTML = inputText;
-        newLi.dataset.index = [index++];
-        
-        todoList.push(inputText);
-        localStorage.setItem('todo', JSON.stringify(todoList));
-        console.log(todoList);
-        
-        const deleteBtn = document.createElement('button');
-        deleteBtn.className = 'deleteBtn';
-        deleteBtn.innerHTML = 'delete';
+		const inputText = document.getElementById('taskInput').value;
+		loadData(todoList);
+		todoList.push(inputText);
+		console.log(todoList);
+		saveData(todoList);
+		render(todoList);
 
-        deleteBtn.addEventListener('click', function() {
-            newLi.remove();
-        });
-
-        newLi.append(deleteBtn);
-        myList.append(newLi);
-
-        document.getElementById('taskInput').value = '';
-    });
+		document.getElementById('taskInput').value = '';
+	});
 });
