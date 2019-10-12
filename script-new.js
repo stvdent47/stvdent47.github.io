@@ -27,11 +27,10 @@ window.addEventListener('load', () => {
 			render(inArray)
 			}, 0);
 	};
-	
+
 	todoList = loadData(todoList);
 	
     const render = (renderArray) => {
-        if (renderArray != undefined) {
         	let forCleaning = document.getElementById('myList');
 			while (forCleaning.firstChild) {
 				forCleaning.removeChild(forCleaning.firstChild);
@@ -53,9 +52,7 @@ window.addEventListener('load', () => {
 				newLi.append(deleteBtn);
 				myList.append(newLi);
 				}
-            
         }
-    }
     render(todoList);
     
     document.getElementById('createBtn').addEventListener('click', function () {
