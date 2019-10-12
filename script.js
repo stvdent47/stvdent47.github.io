@@ -39,9 +39,11 @@ window.addEventListener('load', () => {
 				deleteBtn.innerHTML = 'delete';
 
 				deleteBtn.addEventListener('click', function() {
-					newLi.remove();
-					alert('removed!');
-					
+					renderArray.splice(i, 1);
+					saveData(renderArray);
+					setTimeout(() => {
+						render(todoList)
+					  }, 0)
 				});
 
 				newLi.append(deleteBtn);

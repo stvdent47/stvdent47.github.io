@@ -21,6 +21,13 @@ window.addEventListener('load', () => {
 		return localStorage.setItem('todo', json);
 	};
 
+	const refresh = (inArray) => {
+		saveData(inArray);
+		setTimeout(() => {
+			render(inArray)
+			}, 0);
+	};
+	
 	todoList = loadData(todoList);
 	
     const render = (renderArray) => {
@@ -39,9 +46,8 @@ window.addEventListener('load', () => {
 				deleteBtn.innerHTML = 'delete';
 
 				deleteBtn.addEventListener('click', function() {
-					newLi.remove();
-					alert('removed!');
-					
+					renderArray.splice(i, 1);
+					refresh(renderArray);
 				});
 
 				newLi.append(deleteBtn);
@@ -54,12 +60,8 @@ window.addEventListener('load', () => {
     
     document.getElementById('createBtn').addEventListener('click', function () {
 		const inputText = document.getElementById('taskInput').value;
-		loadData(todoList);
 		todoList.push(inputText);
-		console.log(todoList);
-		saveData(todoList);
-		render(todoList);
-
+		refresh(todoList);
 		document.getElementById('taskInput').value = '';
 	});
 });
