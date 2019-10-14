@@ -30,29 +30,29 @@ window.addEventListener('load', () => {
 
 	todoList = loadData(todoList);
 	
-    const render = (renderArray) => {
-        	let forCleaning = document.getElementById('myList');
-			while (forCleaning.firstChild) {
-				forCleaning.removeChild(forCleaning.firstChild);
-			};
-				
-			for (let i = 0; i < renderArray.length; i++) {
-				const newLi = document.createElement('li');
-				newLi.innerHTML = renderArray[i];
-				
-				const deleteBtn = document.createElement('button');
-				deleteBtn.className = 'deleteBtn';
-				deleteBtn.innerHTML = 'delete';
-
-				deleteBtn.addEventListener('click', function() {
-					renderArray.splice(i, 1);
-					refresh(renderArray);
-				});
-
-				newLi.append(deleteBtn);
-				myList.append(newLi);
-				}
-        }
+	const render = (renderArray) => {
+		let forCleaning = document.getElementById('myList');
+		while (forCleaning.firstChild) {
+			forCleaning.removeChild(forCleaning.firstChild);
+		};
+		
+		renderArray.forEach(function(item, i, renderArray) {
+			const newLi = document.createElement('li');
+			newLi.innerHTML = renderArray[i];
+		
+			const deleteBtn = document.createElement('button');
+			deleteBtn.className = 'deleteBtn';
+			deleteBtn.innerHTML = 'delete';
+	  
+			deleteBtn.addEventListener('click', function() {
+				renderArray.splice(i, 1);
+				refresh(renderArray);
+			}); 
+		  
+			newLi.append(deleteBtn);
+			myList.append(newLi);
+		});
+    };
     render(todoList);
     
     document.getElementById('createBtn').addEventListener('click', function () {
