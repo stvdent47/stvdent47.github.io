@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
 		}
 		} catch (e) {
 			return [];
-			};
+		};
 	}
 
 	const saveToLocalStorage = (data) => {
@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
 		saveToLocalStorage(inArray);
 		setTimeout(() => {
 			render(inArray)
-			}, 0);
+		}, 0);
 	};
 
 	todoList = loadData(todoList);
