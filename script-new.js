@@ -16,13 +16,13 @@ window.addEventListener('load', () => {
 			};
 	}
 
-	const saveData = (data) => {
+	const saveToLocalStorage = (data) => {
 		const json = JSON.stringify(data);
 		return localStorage.setItem('todo', json);
 	};
 
 	const refresh = (inArray) => {
-		saveData(inArray);
+		saveToLocalStorage(inArray);
 		setTimeout(() => {
 			render(inArray)
 			}, 0);
@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
 			forCleaning.removeChild(forCleaning.firstChild);
 		};
 		
-		renderArray.forEach(function(item, i, renderArray) {
+		let todoMap = renderArray.map(function(item, i, renderArray) {
 			const newLi = document.createElement('li');
 			newLi.innerHTML = renderArray[i];
 		
@@ -50,8 +50,11 @@ window.addEventListener('load', () => {
 			}); 
 		  
 			newLi.append(deleteBtn);
-			myList.append(newLi);
+			
+			return newLi;
 		});
+
+		myList.append(...todoMap);
     };
     render(todoList);
     
