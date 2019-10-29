@@ -1,5 +1,12 @@
+body {
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
 header {
     background-color: gray;
+    margin-bottom: 20px;
 }
 
 #list {
@@ -10,11 +17,18 @@ header {
 }
 
 #myList {
+    text-align: left;
     background-color: aquamarine;
+    
 }
 
 .deleteBtn {
     background-color: blueviolet;
+    border-radius: 50px;
+}
+
+.deleteBtn:hover {
+    background-color: antiquewhite;
 }
 
 #input {
@@ -23,8 +37,15 @@ header {
 
 #taskInput {
     background-color: aqua;
+    text-align: center;
+    border-radius: 50px;
 }
 
 #createBtn {
     background-color: red;
+    border-radius: 50px;
 }
+
+#createBtn:hover {
+    background-color: yellow;
+  }

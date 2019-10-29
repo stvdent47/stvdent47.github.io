@@ -63,5 +63,6 @@ window.addEventListener('load', () => {
 		todoList.push(inputText);
 		refresh(todoList);
 		document.getElementById('taskInput').value = '';
+		alert('You have successfully created a task!')
 	});
 });
