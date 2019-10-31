@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
 		}
 		} catch (e) {
 			return [];
-			};
+		};
 	}
 
 	const saveToLocalStorage = (data) => {
@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
 		saveToLocalStorage(inArray);
 		setTimeout(() => {
 			render(inArray)
-			}, 0);
+		}, 0);
 	};
 
 	todoList = loadData(todoList);
@@ -63,5 +63,6 @@ window.addEventListener('load', () => {
 		todoList.push(inputText);
 		refresh(todoList);
 		document.getElementById('taskInput').value = '';
+		alert('You have successfully created a task!')
 	});
 });
